@@ -7,7 +7,7 @@ public class AppDbContext : DbContext
         {
         }
 
-    public DbSet<Value> Value => Set<Value>();
+    public DbSet<Value> Values => Set<Value>();
 
     public DbSet<Result> Results => Set<Result>();
 
@@ -26,6 +26,7 @@ public class AppDbContext : DbContext
             .IsRequired();
 
             entity.Property(x => x.Date)
+            .HasColumnType("timestamp without time zone")
             .IsRequired();
 
             entity.Property(x => x.ExecutionTime)
@@ -51,6 +52,7 @@ public class AppDbContext : DbContext
             .IsUnique();
 
             entity.Property(x => x.FirstOperationDate)
+            .HasColumnType("timestamp without time zone")
             .IsRequired();
         });
     }

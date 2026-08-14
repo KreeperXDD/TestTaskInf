@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TestTask.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260814122417_FixNames")]
+    partial class FixNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +44,7 @@ namespace TestTask.Api.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<DateTime>("FirstOperationDate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<double>("MaxMetricValue")
                         .HasColumnType("double precision");
@@ -49,7 +52,7 @@ namespace TestTask.Api.Migrations
                     b.Property<double>("MedianMetricValue")
                         .HasColumnType("double precision");
 
-                    b.Property<double>("MinMetricValue")
+                    b.Property<double>("MinMetricVAlue")
                         .HasColumnType("double precision");
 
                     b.Property<double>("TimeDeltaSeconds")
@@ -72,7 +75,7 @@ namespace TestTask.Api.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<double>("ExecutionTime")
                         .HasColumnType("double precision");

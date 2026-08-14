@@ -16,5 +16,5 @@ public class Result
 
     public double MaxMetricValue {get; set; }
 
-    public double MinMetricVAlue {get; set; }
+    public double MinMetricValue {get; set; }
 }
