@@ -52,7 +52,7 @@ public class ResultsController : ControllerBase
 
         if(firstOperationDateTo.HasValue)
         {
-            query = query.Where(result => result.FirstOperationDate >= firstOperationDateTo.Value);
+            query = query.Where(result => result.FirstOperationDate <= firstOperationDateTo.Value);
         }        
 
         if(avarageMetricValueFrom.HasValue)
@@ -62,7 +62,7 @@ public class ResultsController : ControllerBase
 
         if(avarageMetricValueTo.HasValue)
         {
-            query = query.Where(result => result.AvarageMetricValue >= avarageMetricValueTo.Value);
+            query = query.Where(result => result.AvarageMetricValue <= avarageMetricValueTo.Value);
         }
 
         if(avarageExecutionTimeFrom.HasValue)
@@ -72,7 +72,7 @@ public class ResultsController : ControllerBase
         
         if(avarageExecutionTimeTo.HasValue)
         {
-            query = query.Where(result => result.AvarageExecutionTime >= avarageExecutionTimeTo.Value);
+            query = query.Where(result => result.AvarageExecutionTime <= avarageExecutionTimeTo.Value);
         }
 
         var results = await query
