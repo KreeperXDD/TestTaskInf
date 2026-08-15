@@ -1,0 +1,26 @@
+<main class="page">
+  <section class="card">
+    <p class="label">TestTask</p>
+    <h1>Загрузка CSV-файла</h1>
+    <p class="description">
+      Выбери файл с операциями. Backend сохранит данные и рассчитает итоговую статистику.
+    </p>
+
+    <label class="file-input">
+      <span>Выбрать CSV-файл</span>
+      <input type="file" accept=".csv,text/csv" (change)="onFileSelected($event)" />
+    </label>
+
+    @if (selectedFile) {
+      <p class="selected-file">Выбран файл: {{ selectedFile.name }}</p>
+    }
+
+    <button type="button" (click)="uploadFile()" [disabled]="!selectedFile || isLoading()">
+      {{ isLoading() ? 'Загрузка…' : 'Загрузить и обработать' }}
+    </button>
+
+    @if (message()) {
+      <p class="message">{{ message() }}</p>
+    }
+  </section>
+</main>

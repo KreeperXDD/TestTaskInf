@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f4f7fb;
+}
+
+.card {
+  width: min(100%, 560px);
+  padding: 40px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgb(34 55 84 / 15%);
+}
+
+.label {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.description {
+  margin: 16px 0 28px;
+  color: #5b6472;
+  line-height: 1.5;
+}
+
+.file-input {
+  display: block;
+  padding: 18px;
+  border: 2px dashed #93c5fd;
+  border-radius: 12px;
+  color: #1d4ed8;
+  cursor: pointer;
+  text-align: center;
+}
+
+.file-input input {
+  display: none;
+}
+
+.selected-file,
+.message {
+  color: #374151;
+  overflow-wrap: anywhere;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
