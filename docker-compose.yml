@@ -17,9 +17,9 @@ services:
       retries: 10
 
   api:
-    build: 
+    build:
       context: .
-      dockerfile: backend/TestTask.Api/DockerFile
+      dockerfile: backend/TestTask.Api/Dockerfile
     container_name: testtask-api
     depends_on:
       db:
@@ -29,6 +29,16 @@ services:
       ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=timescale_data;Username=postgres;Password=postgres"
     ports:
       - "5029:8080"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: testtask-frontend
+    depends_on:
+      - api
+    ports:
+      - "4200:4200"
 
 volumes:
   postgres_data:
